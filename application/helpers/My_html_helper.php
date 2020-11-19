@@ -28,6 +28,7 @@ if (!function_exists('meta')) {
         return $str ;
     }
 }
+echo doctype('html5'); // affiche : <!DOCTYPE html>
 
 echo meta("UTF-8","",'charset');// affiche : <meta charset ="UTF-8" />
 

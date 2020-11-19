@@ -33,14 +33,15 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/index.html">Sébastien Adam</a>
+          <a class="navbar-brand" href="/index.html">Hermann Remondo</a>
         </div>
         <div class="collapse navbar-collapse" id="main_nav">
           <ul class="nav navbar-nav">
             <script src="<?= base_url('js/jquery-2.1.4.min.js'); ?>"></script>
-            <li><?= anchor('index', "Accueil");?></li>
-            <li><a href="<?=site_url('index'); ?>">Accueil</a></li>
-            
+            <li><?= anchor('index',"Accueil");?></li>
+            <!-- <li><a href="<?=site_url('index'); ?>">Accueil</a></li> une autre façon d'écrire l'element du menu Acceuil clickable --> 
+            <li><?= anchor('contact',"Contact");?></li>
+
           </ul>
         </div>
       </div>
