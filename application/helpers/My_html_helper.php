@@ -28,14 +28,14 @@ if (!function_exists('meta')) {
         return $str ;
     }
 }
-echo doctype('html5'); // affiche : <!DOCTYPE html>
+// echo doctype('html5'); // affiche : <!DOCTYPE html>
 
-echo meta("UTF-8","",'charset');// affiche : <meta charset ="UTF-8" />
+// echo meta("UTF-8","",'charset');// affiche : <meta charset ="UTF-8" />
 
-echo link_tag("css/style.css");
+// echo link_tag("css/style.css");
 // affiche : <link href="http://localhost/css/style.css" rel="stylesheet" type="text/css" />
 
-echo heading("Welcome", 3); // affiche : <h3>Welcome</h3>
+// echo heading("Welcome", 3); // affiche : <h3>Welcome</h3>
 
 
 
