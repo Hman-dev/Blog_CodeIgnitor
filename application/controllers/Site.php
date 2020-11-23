@@ -32,6 +32,7 @@ class Site extends CI_Controller {
             $this->email->message($this->input->post('message'));
            
             
+            
             if($this->email->send()){
                 $data['result_class'] = "alert-success";
                 $data['result_message'] = "Merci de nous avoir envoyé ce mail. Nous y répondrons dans les meilleurs délais.";
