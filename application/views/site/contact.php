@@ -16,8 +16,17 @@
     <div class="col-md-10 <?= empty( form_error('email')) ?'':'has-error' ?>">
       <?= form_input(['name' => "email", 'id' => "email", 'type' => 'email', 'class' => 'form-control'], set_value('email')) ?>
       <span class="help-block"><?= form_error('email'); ?></span>
-  </div>
-  </div>
+    </div>
+    </div>
+    <!-- (email de confirmation) -->
+    <div class="form-group">
+      <?= form_label("Confirmation e-mail&nbsp;:", "email", ['class' => "col-md-2 control-label "]) ?>
+      <div class="col-md-10 <?= empty( form_error('emailconf')) ?"" : "has-error" ?>">
+        <?= form_input(['name' => "emailconf", 'id' => "emailconf", 'type' => 'email', 'class' => 'form-control'], set_value('emailconf')) ?>
+        <span class="help-block"><?= form_error('emailconf'); ?></span>
+      </div>
+    </div>
+<!-- (...) -->
     <div class="form-group">
       <?= form_label("Titre&nbsp;:", "title", ['class' => "col-md-2 control-label "]) ?>
       <div class="col-md-10 <?= empty( form_error('title')) ?'':'has-error' ?>">

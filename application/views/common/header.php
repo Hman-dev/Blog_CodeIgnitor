@@ -6,8 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><?= $title ?></title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <!-- Optional theme -->
@@ -40,8 +38,13 @@
             <script src="<?= base_url('js/jquery-2.1.4.min.js'); ?>"></script>
             <li><?= anchor('index',"Accueil");?></li>
             <!-- <li><a href="<?=site_url('index'); ?>">Accueil</a></li> une autre façon d'écrire l'element du menu Acceuil clickable --> 
+            <li><?= anchor('apropos',"À propos de moi");?></li>
             <li><?= anchor('contact',"Contact");?></li>
 
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            <li><?= anchor('connexion', "Connexion"); ?></li>
           </ul>
         </div>
       </div>
