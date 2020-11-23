@@ -43,9 +43,20 @@
 
           </ul>
 
+        
+
           <ul class="nav navbar-nav navbar-right">
+            <?php if($this->auth_user->is_connected) : ?>
+              <li><?= anchor('deconnexion', "Déconnexion"); ?></li>
+            <?php else: ?>
             <li><?= anchor('connexion', "Connexion"); ?></li>
+            <?php endif; ?>
           </ul>
+          <?php if($this->auth_user->is_connected) : ?>
+            <p class="navbar-text navbar-right">|</p>
+            <p class="navbar-text navbar-right">Bienvenue <strong><?= $this->auth_user->username; ?></strong></p>
+          <?php endif; ?>
+            </ul>
         </div>
       </div>
     </nav>

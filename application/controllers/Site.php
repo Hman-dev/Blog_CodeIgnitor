@@ -11,24 +11,28 @@ class Site extends CI_Controller {
         $this->load->view('common/footer',$data);
     }
   
-    public function contact() {
+    public function contact(){
+
         $this->load->helper("form");
         $this->load->library('form_validation');
 
         $data["title"] = "Contact";
 
         $this->load->view('common/header', $data);
+
         if($this->form_validation->run()) {
             // TODO: envoyer le mail
             $this->load->library('email');
             $this->config->load('email', TRUE);
             $this->email->initialize($this->config->item('email'));
+
             $this->email->from($this->input->post('email'), $this->input->post('name'));
-            $this->email->to('promodevweb@gmail.com');
+            $this->email->to('promoweb1@yopmail.com');
             $this->email->subject($this->input->post('title'));
             $this->email->message($this->input->post('message'));
-            $this->email->send();
-            if($this->email->send()) {
+           
+            
+            if($this->email->send()){
                 $data['result_class'] = "alert-success";
                 $data['result_message'] = "Merci de nous avoir envoyé ce mail. Nous y répondrons dans les meilleurs délais.";
             } else {
@@ -40,12 +44,12 @@ class Site extends CI_Controller {
                 $data['result_message'] .= "</pre>\n";
                 $this->email->clear();
             }
-            $this->load->view('site/contact_result', $data);
-        } else {
-            $this->load->view('site/contact', $data);
-        }
-        $this->load->view('common/footer', $data);
+        $this->load->view('site/contact_result', $data);
+    }else {
+        $this->load->view('site/contact', $data);
     }
+    $this->load->view('common/footer', $data);
+}
 
     public function apropos(){
         $data["title"] = "À propos de moi";
@@ -60,6 +64,33 @@ class Site extends CI_Controller {
         $this->session->count ++;
         echo"Valeur :" . $this->session->count;
     }
+
+    public function connexion() {
+        $this->load->helper("form");
+        $this->load->library('form_validation');
+
+        $data["title"] = "Identification";
+
+        if($this->form_validation->run()) {
+            $username = $this->input->post('username');
+            $password = $this->input->post('password');
+            $this->auth_user->login( $username, $password);
+            if($this->auth_user->is_connected) {
+                redirect('index');
+            } else {
+                $data['login_error'] = "Échec de l'authentification";
+            }
+        }
+
+        $this->load->view('common/header', $data);
+        $this->load->view('site/connexion', $data);
+        $this->load->view('common/footer', $data);
+    }
+
+        function deconnexion() {
+            $this->auth_user->logout();
+            redirect('index');
+        }
 
 
 }
