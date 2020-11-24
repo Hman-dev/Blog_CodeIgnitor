@@ -5,6 +5,14 @@
   </div>
   <div class="row">
     <?= form_open('connexion', ['class' => 'form-horizontal']); ?>
+    <?php if(! empty( $login_error)) : ?>
+      <div class="form-group">
+        <div class="col-md-offset-2 col-md-10 has-error">
+          <span class="help-block"><?= $login_error; ?></span>
+        </div>
+      </div>
+      <!-- (...) -->
+    <?php endif; ?>
     <div class="form-group">
       <?= form_label("Nom d'utilisateur&nbsp;:", "username", ['class' => "col-md-2 control-label"]) ?>
       <div class="col-md-10 <?= empty(form_error('username')) ? "" : "has-error" ?>">
