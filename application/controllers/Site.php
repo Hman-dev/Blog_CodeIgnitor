@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
+// on va toujours étendre cette classe ci_controller.c'est une méthode codeignitor
 class Site extends CI_Controller {
 
     public function index() {
@@ -12,7 +12,7 @@ class Site extends CI_Controller {
     }
   
     public function contact(){
-
+        // un helper ne peut pas être une classe.
         $this->load->helper("form");
         $this->load->library('form_validation');
 
@@ -39,7 +39,8 @@ class Site extends CI_Controller {
             } else {
                 $data['result_class'] = "alert-danger";
                 $data['result_message'] = "Votre message n'a pas pu être envoyé. Nous mettons tout en oeuvre pour résoudre le problème.";
-                // Ne faites jamais ceci dans le "vrai monde"
+                // Ne faites jamais ceci dans le "vrai monde".Le code qui suit est pour nous mais pas
+                //  pour l'utilisateur le mettre après en commentaire
                 $data['result_message'] .= "<pre>\n";
                 $data['result_message'] .= $this->email->print_debugger();
                 $data['result_message'] .= "</pre>\n";
@@ -52,9 +53,11 @@ class Site extends CI_Controller {
     $this->load->view('common/footer', $data);
 }
 
-    public function apropos(){
-        $data["title"] = "À propos de moi";
+    public function apropos(){ 
+        // traitement ou préparation de données.ici $data on définit quel sera le titre de la page.
+        $data["title"] = "À propos de moi..."; /**/ 
 
+        // création du rendu ou chargement des vues.
         $this->load->view('common/header',$data);
         $this ->load->view('site/apropos',$data);
         $this->load->view('common/footer',$data);

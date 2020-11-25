@@ -40,5 +40,17 @@ $config = array(
             'label' => 'Mot de passe',
             'rules' => 'required'
         )
-    )
+    ),
+    'blog/nouvel_article' => array(
+        array(
+            'field'=>'title',
+            'label'=>'Titre',
+            'rules' =>'required'
+        ),
+        array(
+            'field'=>'content',
+            'label'=>'contenu',
+            'rules' =>'required'
+        )
+    ),
 );

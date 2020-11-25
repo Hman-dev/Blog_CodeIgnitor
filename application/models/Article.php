@@ -1,7 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
-class Article extends CI_Model {
+// le modèle est une représentation des données.Article-status est une entité 
+class Article extends CI_Model
+ {
 
     protected $_alias;
     protected $_author;
@@ -125,6 +126,13 @@ class Article extends CI_Model {
         }
     }
 
+    public function delete() {
+        if ($this->is_found) {
+            $this->_status = 'D';
+            $this->save();
+        }
+    }
+
     protected function set_property_author_id($author_id) {
         $this->_author_id = $author_id;
     }
@@ -142,4 +150,5 @@ class Article extends CI_Model {
         $this->_title = $title;
         $this->_alias = $alias;
     }
+
 }

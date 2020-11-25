@@ -9,8 +9,9 @@
     <div class="col-md-10">
       <ul class="nav nav-pills nav-justified">
         <?php if ($this->auth_user->is_connected) : ?>
+        <!-- Modifification de la vue  pour que le lien de création d'unnouvel article pointe sur une nvlle méthode 'blog/edition'  -->
           <li role="presentation">
-            <?= anchor('blog/nouvel_article', "Nouvel article"); ?>
+            <?= anchor('blog/edition', "Nouvel article"); ?> 
           </li>
         <?php endif; ?>
       </ul>
